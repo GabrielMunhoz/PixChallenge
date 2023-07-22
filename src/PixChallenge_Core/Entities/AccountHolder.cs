@@ -7,6 +7,7 @@ namespace PixChallenge_Core.Entities
         public Guid Id { get; set; }
         public string? Name { get; set; }
         public KeyType KeyType { get; set; }
+        public string ValueKey { get; set; }
 
     }
 }

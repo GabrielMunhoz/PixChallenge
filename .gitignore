@@ -2,11 +2,15 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+
 /.vs
+/src/PixChallenge_Api/bin/Debug/net6.0
+/src/PixChallenge_Api/obj
+/src/PixChallenge_Core/bin/Debug/net6.0
+/src/PixChallenge_Core/obj
+/src/PixChallenge_Data/bin/Debug/net6.0
+/src/PixChallenge_Data/obj
+/src/PixChallenge_Ioc/bin/Debug/net6.0
+/src/PixChallenge_Ioc/obj
 /src/PixChallenge_Service/bin/Debug/net6.0
-/src/PixChallenge_Data
-/src/PixChallenge_Core
-/src/PixChallenge_Api
-/src/PixChallenge_Service/obj/Debug/net6.0/PixChallenge_Application.csproj.AssemblyReference.cache
-/src/PixChallenge_Service/obj/Debug/net6.0/PixChallenge_Application.dll
-/src/PixChallenge_Service/obj/Debug/net6.0/PixChallenge_Application.pdb
+/src/PixChallenge_Service/obj

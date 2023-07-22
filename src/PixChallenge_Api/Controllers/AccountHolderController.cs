@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PixChallenge_Api.ViewModels;
 using PixChallenge_Application.Interfaces;
+using PixChallenge_Core.Entities;
 
 namespace PixChallenge_Api.Controllers
 {
@@ -16,9 +18,31 @@ namespace PixChallenge_Api.Controllers
             _logger = logger;
         }
         [HttpPost]
-        public async Task<IActionResult> CreateAccountHolder()
+        public async Task<IActionResult> CreateAccountHolder(CreateAccountHolderViewModel createAccountHolderViewModel)
         {
-            return Ok();
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+                AccountHolder accountHolder = CreateAccountHolderViewModelToAccountHolder(createAccountHolderViewModel);
+
+                return Ok(await _accountHolderService.CreateAsync(accountHolder));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest(ex.Message);
+            }
+        }
+
+        private static AccountHolder CreateAccountHolderViewModelToAccountHolder(CreateAccountHolderViewModel createAccountHolder)
+        {
+            return new AccountHolder
+            {
+                KeyType = createAccountHolder.KeyType,
+                Name = createAccountHolder.Name,
+                ValueKey = createAccountHolder.ValueKey,
+            };
         }
     }
 }
