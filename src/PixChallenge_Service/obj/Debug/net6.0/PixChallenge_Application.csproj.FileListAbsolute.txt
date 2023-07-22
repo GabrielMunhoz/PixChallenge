@@ -1,0 +1,15 @@
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\bin\Debug\net6.0\PixChallenge_Application.deps.json
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\bin\Debug\net6.0\PixChallenge_Application.dll
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\bin\Debug\net6.0\PixChallenge_Application.pdb
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\obj\Debug\net6.0\PixChallenge_Application.csproj.AssemblyReference.cache
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\obj\Debug\net6.0\PixChallenge_Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\obj\Debug\net6.0\PixChallenge_Application.AssemblyInfoInputs.cache
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\obj\Debug\net6.0\PixChallenge_Application.AssemblyInfo.cs
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\obj\Debug\net6.0\PixChallenge_Application.csproj.CoreCompileInputs.cache
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\obj\Debug\net6.0\PixChallenge_Application.dll
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\obj\Debug\net6.0\refint\PixChallenge_Application.dll
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\obj\Debug\net6.0\PixChallenge_Application.pdb
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\obj\Debug\net6.0\ref\PixChallenge_Application.dll
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\bin\Debug\net6.0\PixChallenge_Core.dll
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\bin\Debug\net6.0\PixChallenge_Core.pdb
+D:\Dev\Challenges\PixChallenge\src\PixChallenge_Service\obj\Debug\net6.0\PixChallenge_Application.csproj.CopyComplete

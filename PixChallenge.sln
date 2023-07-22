@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D5269A30-1394-4323-B8FE-754FE4DB944A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Api", "1-Api", "{6B37BF89-1FC5-45BE-B593-E9EAEB8AC809}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PixChallenge_Api", "src\PixChallenge_Api\PixChallenge_Api.csproj", "{6E288138-91DA-4EE0-8B8A-8C08FB39C6E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Domain", "2-Domain", "{BB7D4D70-3324-4EA6-9950-DC3B5C71FE6B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PixChallenge_Core", "src\PixChallenge_Core\PixChallenge_Core.csproj", "{71B5B8F5-69ED-4C46-8966-BDFA2FE0D318}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Business", "3-Business", "{4F1AB9B9-D8CE-4793-B9EA-EFC78902CCEA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PixChallenge_Application", "src\PixChallenge_Service\PixChallenge_Application.csproj", "{803FCE93-9784-45CB-9EE4-C21C9750361D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Infrastructure", "4-Infrastructure", "{24479623-06F6-46CF-A68A-F1C2E16A06D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixChallenge_Data", "src\PixChallenge_Data\PixChallenge_Data.csproj", "{7BFB40E5-0A10-47CB-A152-4B4578B401D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E288138-91DA-4EE0-8B8A-8C08FB39C6E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E288138-91DA-4EE0-8B8A-8C08FB39C6E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E288138-91DA-4EE0-8B8A-8C08FB39C6E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E288138-91DA-4EE0-8B8A-8C08FB39C6E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71B5B8F5-69ED-4C46-8966-BDFA2FE0D318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71B5B8F5-69ED-4C46-8966-BDFA2FE0D318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71B5B8F5-69ED-4C46-8966-BDFA2FE0D318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71B5B8F5-69ED-4C46-8966-BDFA2FE0D318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{803FCE93-9784-45CB-9EE4-C21C9750361D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{803FCE93-9784-45CB-9EE4-C21C9750361D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{803FCE93-9784-45CB-9EE4-C21C9750361D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{803FCE93-9784-45CB-9EE4-C21C9750361D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BFB40E5-0A10-47CB-A152-4B4578B401D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BFB40E5-0A10-47CB-A152-4B4578B401D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BFB40E5-0A10-47CB-A152-4B4578B401D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BFB40E5-0A10-47CB-A152-4B4578B401D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6B37BF89-1FC5-45BE-B593-E9EAEB8AC809} = {D5269A30-1394-4323-B8FE-754FE4DB944A}
+		{6E288138-91DA-4EE0-8B8A-8C08FB39C6E5} = {6B37BF89-1FC5-45BE-B593-E9EAEB8AC809}
+		{BB7D4D70-3324-4EA6-9950-DC3B5C71FE6B} = {D5269A30-1394-4323-B8FE-754FE4DB944A}
+		{71B5B8F5-69ED-4C46-8966-BDFA2FE0D318} = {BB7D4D70-3324-4EA6-9950-DC3B5C71FE6B}
+		{4F1AB9B9-D8CE-4793-B9EA-EFC78902CCEA} = {D5269A30-1394-4323-B8FE-754FE4DB944A}
+		{803FCE93-9784-45CB-9EE4-C21C9750361D} = {4F1AB9B9-D8CE-4793-B9EA-EFC78902CCEA}
+		{24479623-06F6-46CF-A68A-F1C2E16A06D3} = {D5269A30-1394-4323-B8FE-754FE4DB944A}
+		{7BFB40E5-0A10-47CB-A152-4B4578B401D5} = {24479623-06F6-46CF-A68A-F1C2E16A06D3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {72807E17-8DF4-446A-8549-67BA210B4050}
+	EndGlobalSection
+EndGlobal
