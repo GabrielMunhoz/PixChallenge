@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PixChallenge_Data.Context;
+using PixChallenge_Ioc;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,10 @@ builder.Services.AddDbContext<PixChallengeContext>(opt =>
     opt.UseSqlServer(connectionString)
     .EnableSensitiveDataLogging()
 );
+
+builder.Services.ConfigureServices();
+
+builder.Services.ConfigureRepositories();
 
 var app = builder.Build();
 
