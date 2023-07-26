@@ -49,7 +49,6 @@ namespace PixChallenge_Data.Repository.Base
             }
         }
 
-
         public async Task<T> GetAsync(Expression<Func<T, bool>> where)
         {
             try
@@ -70,6 +69,25 @@ namespace PixChallenge_Data.Repository.Base
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public IQueryable<T> Query(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes)
+        {
+            try
+            {
+                IQueryable<T> query = DbSet;
+
+                if (includes.Length > 0)
+                    foreach (var item in includes)
+                        query = query.Include(item);
+
+                return query.Where(predicate).AsQueryable();
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PixChallenge_Data.Context;
 
@@ -11,9 +12,11 @@ using PixChallenge_Data.Context;
 namespace PixChallenge_Data.Migrations
 {
     [DbContext(typeof(PixChallengeContext))]
-    partial class PixChallengeContextModelSnapshot : ModelSnapshot
+    [Migration("20230726134955_Configuring")]
+    partial class Configuring
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,15 +52,17 @@ namespace PixChallenge_Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("AccountHolderId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("DateProcessed")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("KeyType")
                         .HasColumnType("int");
 
-                    b.Property<string>("PayeeKey")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("PayeeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("SenderId")
                         .HasColumnType("uniqueidentifier");
@@ -67,6 +72,10 @@ namespace PixChallenge_Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AccountHolderId");
+
+                    b.HasIndex("PayeeId");
+
                     b.HasIndex("SenderId");
 
                     b.ToTable("BankTransaction");
@@ -74,18 +83,34 @@ namespace PixChallenge_Data.Migrations
 
             modelBuilder.Entity("PixChallenge_Core.Entities.BankTransaction", b =>
                 {
-                    b.HasOne("PixChallenge_Core.Entities.AccountHolder", "Sender")
-                        .WithMany("BankTransactions")
-                        .HasForeignKey("SenderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("PixChallenge_Core.Entities.AccountHolder", null)
+                        .WithMany("AllTransactions")
+                        .HasForeignKey("AccountHolderId");
+
+                    b.HasOne("PixChallenge_Core.Entities.AccountHolder", "Payee")
+                        .WithMany("BankTransactionsPayee")
+                        .HasForeignKey("PayeeId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.HasOne("PixChallenge_Core.Entities.AccountHolder", "Sender")
+                        .WithMany("BankTransactionsSender")
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Payee");
 
                     b.Navigation("Sender");
                 });
 
             modelBuilder.Entity("PixChallenge_Core.Entities.AccountHolder", b =>
                 {
-                    b.Navigation("BankTransactions");
+                    b.Navigation("AllTransactions");
+
+                    b.Navigation("BankTransactionsPayee");
+
+                    b.Navigation("BankTransactionsSender");
                 });
 #pragma warning restore 612, 618
         }

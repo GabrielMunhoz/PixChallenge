@@ -5,6 +5,6 @@ namespace PixChallenge_Application.Interfaces
     public interface IBankTransactionService
     {
         Task<BankTransaction> ProcessPayment(BankTransaction transaction);
-        Task<BankTransaction> GetByKeyAsync(string key); 
+        Task<List<BankTransaction>> GetByKeyAsync(string key); 
     }
 }

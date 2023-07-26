@@ -22,7 +22,7 @@ namespace PixChallenge_Application.Services
             try
             {
                 //Validate if data are valid
-                if (IsValidPayment(transaction))
+                if (!IsValidPayment(transaction))
                     return await Task.FromResult(new BankTransaction());
 
                 if (!(await IsValidAccountHolders(transaction)))
@@ -42,8 +42,8 @@ namespace PixChallenge_Application.Services
         {
             if(transaction.Value <= Decimal.MinValue) 
                 return false;
-            
-            if(transaction.Payee.ValueKey == transaction.Sender.ValueKey)
+
+            if (transaction.SenderId == Guid.Empty)
                 return false;
 
             return true;
@@ -51,22 +51,32 @@ namespace PixChallenge_Application.Services
 
         private async Task<bool> IsValidAccountHolders(BankTransaction transaction)
         {
-            transaction.Payee = await _accountHolderRepository
-                .GetAsync(x => x.ValueKey == transaction.Payee.ValueKey);
+            AccountHolder sender = await _accountHolderRepository
+                .GetAsync(x => x.Id == transaction.SenderId);
 
-            transaction.Sender = await _accountHolderRepository
-                .GetAsync(x => x.ValueKey == transaction.Sender.ValueKey);
+            if (sender == null)
+                return false;
 
-            if (transaction.Payee.Id != Guid.Empty && transaction.Sender.Id != Guid.Empty)
-                return true; 
+            if (transaction.PayeeKey == sender.ValueKey)
+                return false;
 
-            return false;
+            return true;
 
         }
 
-        Task<BankTransaction> IBankTransactionService.GetByKeyAsync(string key)
+        public Task<List<BankTransaction>> GetByKeyAsync(string key)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return Task.FromResult(_bankTransactionRepository
+                    .Query(x => x.PayeeKey.Equals(key), x => x.Sender)
+                    .ToList());
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
         }
     }
 }

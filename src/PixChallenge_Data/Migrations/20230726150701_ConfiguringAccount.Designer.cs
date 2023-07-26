@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PixChallenge_Data.Context;
 
@@ -11,9 +12,11 @@ using PixChallenge_Data.Context;
 namespace PixChallenge_Data.Migrations
 {
     [DbContext(typeof(PixChallengeContext))]
-    partial class PixChallengeContextModelSnapshot : ModelSnapshot
+    [Migration("20230726150701_ConfiguringAccount")]
+    partial class ConfiguringAccount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

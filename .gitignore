@@ -14,3 +14,6 @@
 /src/PixChallenge_Ioc/obj
 /src/PixChallenge_Service/bin/Debug/net6.0
 /src/PixChallenge_Service/obj
+/Tests/PixChallenge_Test/bin/Debug/net6.0
+/Tests/PixChallenge_Test/obj/Debug/net6.0
+/Tests/PixChallenge_Test/obj

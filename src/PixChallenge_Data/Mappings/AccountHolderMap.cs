@@ -12,6 +12,7 @@ namespace PixChallenge_Data.Mappings
             builder.HasKey(x => x.Id);
             builder.Property(x => x.ValueKey).IsRequired();
             builder.Property(x => x.KeyType).IsRequired();
+
         }
     }
 }

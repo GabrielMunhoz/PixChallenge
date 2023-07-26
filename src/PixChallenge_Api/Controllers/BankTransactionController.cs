@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using PixChallenge_Api.ViewModels.BankTransaction;
 using PixChallenge_Application.Interfaces;
 using PixChallenge_Core.Entities;
+using PixChallenge_Core.Enums;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace PixChallenge_Api.Controllers
 {
@@ -43,9 +47,9 @@ namespace PixChallenge_Api.Controllers
             return new BankTransaction
             {
                 DateProcessed = DateTime.UtcNow,
-                KeyType = createTransactionViewModel.KeyType,
-                Payee = new AccountHolder { ValueKey = createTransactionViewModel.PayeeKey },
-                Sender = new AccountHolder { ValueKey = createTransactionViewModel.SenderKey },
+                KeyType = (KeyType)Enum.Parse(typeof(KeyType), createTransactionViewModel.KeyType),
+                PayeeKey = createTransactionViewModel.PayeeKey,
+                SenderId = Guid.Parse(createTransactionViewModel.SenderId),
                 Value = createTransactionViewModel.Value,
             };
         }
@@ -53,7 +57,16 @@ namespace PixChallenge_Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPaymentAsync(string key)
         {
-            return Ok();
+            try
+            {
+                return Ok(await _bankTransactionService.GetByKeyAsync(key));
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError(ex.Message);
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
