@@ -47,7 +47,7 @@ namespace PixChallenge_Api.Controllers
             return new BankTransaction
             {
                 DateProcessed = DateTime.UtcNow,
-                KeyType = (KeyType)Enum.Parse(typeof(KeyType), createTransactionViewModel.KeyType),
+                KeyType = (KeyType)Enum.Parse(typeof(KeyType), createTransactionViewModel.KeyType.ToUpper()),
                 PayeeKey = createTransactionViewModel.PayeeKey,
                 SenderId = Guid.Parse(createTransactionViewModel.SenderId),
                 Value = createTransactionViewModel.Value,

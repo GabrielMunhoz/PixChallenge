@@ -2,8 +2,8 @@
 {
     public enum KeyType
     {
-        Email,
+        EMAIL,
         CPF,
-        Phone
+        PHONE
     }
 }

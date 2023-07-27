@@ -8,7 +8,7 @@ namespace PixChallenge_Api.ViewModels
         [Required]
         public string Name { get; set; }
         [Required]
-        public KeyType KeyType{ get; set; }
+        public string KeyType{ get; set; }
         [Required]
         public string ValueKey { get; set; }
     }

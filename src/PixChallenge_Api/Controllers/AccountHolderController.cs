@@ -2,6 +2,7 @@
 using PixChallenge_Api.ViewModels;
 using PixChallenge_Application.Interfaces;
 using PixChallenge_Core.Entities;
+using PixChallenge_Core.Enums;
 
 namespace PixChallenge_Api.Controllers
 {
@@ -39,7 +40,7 @@ namespace PixChallenge_Api.Controllers
         {
             return new AccountHolder
             {
-                KeyType = createAccountHolder.KeyType,
+                KeyType = (KeyType)Enum.Parse(typeof(KeyType), createAccountHolder.KeyType.ToUpper()),
                 Name = createAccountHolder.Name,
                 ValueKey = createAccountHolder.ValueKey,
             };
