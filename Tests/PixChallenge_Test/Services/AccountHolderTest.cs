@@ -4,6 +4,7 @@ using Moq;
 using PixChallenge_Application.Interfaces;
 using PixChallenge_Application.Services;
 using PixChallenge_Core.Entities;
+using PixChallenge_Core.Enums;
 using PixChallenge_Core.Interfaces;
 
 namespace PixChallenge_Test.Services
@@ -24,12 +25,19 @@ namespace PixChallenge_Test.Services
         public void CreateAsync_Succes()
         {
             //Arrange
+            var account = new AccountHolder
+            {
+                Name = "Jane Doe",
+                ValueKey = "55544433390",
+                KeyType = KeyType.CPF
+            };
+
             _accountHolderRepository
                 .Setup(x => x.CreateAsync(It.IsAny<AccountHolder>()))
                 .ReturnsAsync(new Mock<AccountHolder>().Object);
 
             //Act
-            var result = _accountHolderService.CreateAsync(It.IsAny<AccountHolder>()).Result;
+            var result = _accountHolderService.CreateAsync(account).Result;
 
             //Assert
             Assert.NotNull(result);

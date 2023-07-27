@@ -1,7 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using FluentValidation;
+using Microsoft.Extensions.Logging;
 using PixChallenge_Application.Interfaces;
 using PixChallenge_Core.Entities;
 using PixChallenge_Core.Interfaces;
+using PixChallenge_Rules.Validations;
 
 namespace PixChallenge_Application.Services
 {
@@ -21,6 +23,10 @@ namespace PixChallenge_Application.Services
 
             try
             {
+                AccountHolderValidator validations = new AccountHolderValidator();
+
+                await validations.ValidateAndThrowAsync(accountHolder);
+
                 return await _accountHolderRepository.CreateAsync(accountHolder);
             }
             catch (Exception ex)

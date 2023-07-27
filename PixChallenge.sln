@@ -29,6 +29,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PixChallenge_Ioc", "src\Pix
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixChallenge_Test", "Tests\PixChallenge_Test\PixChallenge_Test.csproj", "{B2B2DD57-12E5-407D-ADC1-50E8A520935C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1-Rules", "3.1-Rules", "{3D3B88A1-D47B-4A00-AB61-356205590873}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixChallenge_Rules", "src\PixChallenge_Rules\PixChallenge_Rules.csproj", "{B882FAC8-5CF0-42C6-B2C7-B5CF4A2E3397}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,10 @@ Global
 		{B2B2DD57-12E5-407D-ADC1-50E8A520935C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2B2DD57-12E5-407D-ADC1-50E8A520935C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2B2DD57-12E5-407D-ADC1-50E8A520935C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B882FAC8-5CF0-42C6-B2C7-B5CF4A2E3397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B882FAC8-5CF0-42C6-B2C7-B5CF4A2E3397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B882FAC8-5CF0-42C6-B2C7-B5CF4A2E3397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B882FAC8-5CF0-42C6-B2C7-B5CF4A2E3397}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +84,8 @@ Global
 		{65507EED-7B5B-4C9D-AFCD-4DA6AFC1F663} = {D5269A30-1394-4323-B8FE-754FE4DB944A}
 		{FA3296AF-A44B-4CC6-A49F-62A06DDD5222} = {95B70181-9BD7-4026-8DED-A22A976E0272}
 		{B2B2DD57-12E5-407D-ADC1-50E8A520935C} = {65507EED-7B5B-4C9D-AFCD-4DA6AFC1F663}
+		{3D3B88A1-D47B-4A00-AB61-356205590873} = {4F1AB9B9-D8CE-4793-B9EA-EFC78902CCEA}
+		{B882FAC8-5CF0-42C6-B2C7-B5CF4A2E3397} = {3D3B88A1-D47B-4A00-AB61-356205590873}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72807E17-8DF4-446A-8549-67BA210B4050}

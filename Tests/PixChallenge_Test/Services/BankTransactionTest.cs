@@ -35,7 +35,8 @@ namespace PixChallenge_Test.Services
             var transaction = new BankTransaction
             {
                 PayeeKey = "payee_key",
-                Sender = new AccountHolder { ValueKey = "sender_key" }
+                Sender = sender,
+                SenderId = sender.Id,
             };
 
             // Act

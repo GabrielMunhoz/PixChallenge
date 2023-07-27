@@ -1,7 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using FluentValidation;
+using Microsoft.Extensions.Logging;
 using PixChallenge_Application.Interfaces;
 using PixChallenge_Core.Entities;
 using PixChallenge_Core.Interfaces;
+using PixChallenge_Rules.BankTransactionRules;
 
 namespace PixChallenge_Application.Services
 {
@@ -17,15 +19,16 @@ namespace PixChallenge_Application.Services
             _accountHolderRepository = accountHolderRepository;
             _logger = logger;
         }
+        
         public async Task<BankTransaction> ProcessPayment(BankTransaction transaction)
         {
             try
             {
-                //Validate if data are valid
-                if (!IsValidPayment(transaction))
-                    return await Task.FromResult(new BankTransaction());
+                BankTransactionValidator validator = new BankTransactionValidator();
 
-                if (!(await IsValidAccountHolders(transaction)))
+                validator.ValidateAndThrow(transaction);
+
+                if (!await IsValidAccountHolders(transaction))
                     return await Task.FromResult(new BankTransaction());
 
                 return await _bankTransactionRepository.CreateAsync(transaction);
@@ -37,18 +40,7 @@ namespace PixChallenge_Application.Services
                 throw;
             }
         }
-
-        private bool IsValidPayment(BankTransaction transaction)
-        {
-            if(transaction.Value <= Decimal.MinValue) 
-                return false;
-
-            if (transaction.SenderId == Guid.Empty)
-                return false;
-
-            return true;
-        }
-
+        
         private async Task<bool> IsValidAccountHolders(BankTransaction transaction)
         {
             AccountHolder sender = await _accountHolderRepository
